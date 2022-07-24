@@ -6,12 +6,11 @@
     width: 600px;
     height: 600px;
     transform: translate(-50%, -50%);
-    
+    background: url('river.png')
 }
 
 canvas {
     position: absolute;
-    background: darkseagreen;
     top: 0;
     left: 0;
     width: 100%;
