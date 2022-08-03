@@ -1,3 +1,4 @@
+//Global Variables
 const timeLeftDisplay = document.querySelector('#time-left')
 const resultDisplay = document.querySelector('#result')
 const startPauseButton = document.querySelector('#start-pause-button')
@@ -7,13 +8,13 @@ const logsRight = document.querySelectorAll('.log-right')
 const carsLeft = document.querySelectorAll('.car-left')
 const carsRight = document.querySelectorAll('.car-right')
 
-let currentIndex = 76
+let currentIndex = 94
 const width = 9
 let timerId
 let outcomeTimerId
-let currentTime = 20
+let currentTime = 60
 
-function moveFrog(e) {
+function movement(e) {
     squares[currentIndex].classList.remove('frog')
 
     switch(e.key) {
@@ -142,7 +143,7 @@ function lose() {
         clearInterval(timerId)
         clearInterval(outcomeTimerId)
         squares[currentIndex].classList.remove('frog')
-        document.removeEventListener('keyup', moveFrog)
+        document.removeEventListener('keyup', movement)
     }
 }
 
@@ -151,7 +152,7 @@ function win() {
         resultDisplay.textContent = 'You Win!'
         clearInterval(timerId)
         clearInterval(outcomeTimerId)
-        document.removeEventListener('keyup', moveFrog)
+        document.removeEventListener('keyup', movement)
     }
 }
 
@@ -161,10 +162,10 @@ startPauseButton.addEventListener('click', () => {
         clearInterval(outcomeTimerId)
         outcomeTimerId = null
         timerId = null
-        document.removeEventListener('keyup', moveFrog)
+        document.removeEventListener('keyup', movement)
     } else {
         timerId = setInterval(autoMoveElements, 1000)
         outcomeTimerId = setInterval(checkOutComes, 50)
-        document.addEventListener('keyup', moveFrog)
+        document.addEventListener('keyup', movement)
     }
 })

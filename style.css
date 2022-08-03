@@ -1,48 +1,77 @@
 html{
 background: url('background.jpg');
 }
-body{
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.grid {
-    border: 5px solid black;
-    height: 810px;
-    width: 810px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: rgb(156, 254, 254);
-}
-
-.grid div {
-    height: 90px;
-    width: 90px;
-}
-
-.ending-block {
-    background-color: red;
-}
-
-.starting-block {
-    background-color: blue;
-}
-.l1, .l2, .l3 {
-    background-color: brown;
-}
-
-.l4, .l5 {
-    background-color: lightblue;
-}
-
-.c1 {
-    background-color: black;
-}
-
-.c2, .c3 {
-    background-color: lightgrey;
-}
 
 .frog {
     background-color: green;
+    
 }
+
+h1{
+    text-align: center;
+    color: white;
+}
+h2 {
+text-align: center;
+color: white;
+font-size: 1.2em;;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    font-size: 15px;
+}
+
+.grid {
+    border: 5px solid white;
+    height: 900px;
+    width: 720px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url('nature_720x900.jpeg');
+}
+
+.grid div {
+    height: 100;
+    width: 80px;
+}
+
+.ending-block {
+    background-color: rgb(179, 101, 101);
+}
+
+.l1, .l2, .l3 {
+    background: url('log.png');
+    border-radius: 20px;
+}
+.river {
+    background-color: rgb(195, 231, 231);
+}
+
+.road{
+    background-color: rgb(148, 199, 148);
+}
+
+.l4, .l5 {
+    background-color: rgb(195, 231, 231);
+}
+
+.c1, .c2 {
+    background-color: rgb(109, 98, 84);
+}
+
+.c3 {
+    background-color: rgb(173, 222, 182);
+}
+
