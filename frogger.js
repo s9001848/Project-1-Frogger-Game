@@ -10,6 +10,7 @@ const carsRight = document.querySelectorAll('.car-right')
 
 let currentIndex = 94
 const width = 9
+const height = 11
 let timerId
 let outcomeTimerId
 let currentTime = 60
@@ -28,7 +29,7 @@ function movement(e) {
             if (currentIndex - width >=0 ) currentIndex -= width
             break
         case 'ArrowDown' :
-            if (currentIndex + width < width * width) currentIndex += width
+            if (currentIndex + height < height * width) currentIndex += width
             break
     }
     squares[currentIndex].classList.add('frog')
@@ -40,7 +41,8 @@ function autoMoveElements() {
     logsLeft.forEach(logLeft => moveLogLeft(logLeft))
     logsRight.forEach(logRight => moveLogRight(logRight))
     carsLeft.forEach(carLeft => moveCarLeft(carLeft))
-    carsRight.forEach(carRight => moveCarRight(carRight))
+    // carsRight.forEach(carRight => moveCarRight(carRight))
+    for(let x = 0; x < carsRight.length; x += 2) {moveCarRight(carsRight[x])}
 }
 
 function checkOutComes() {
@@ -102,32 +104,43 @@ function moveCarLeft(carLeft) {
     switch(true) {
         case carLeft.classList.contains('c1') :
             carLeft.classList.remove('c1')
-            carLeft.classList.add('c2')
-            break
-        case carLeft.classList.contains('c2') :
-            carLeft.classList.remove('c2')
             carLeft.classList.add('c3')
             break
+        // case carLeft.classList.contains('c2') :
+        //     carLeft.classList.remove('c2')
+        //     carLeft.classList.add('c3')
+        //     break
         case carLeft.classList.contains('c3') :
             carLeft.classList.remove('c3')
             carLeft.classList.add('c1')
             break
     }
+    // setInterval(carLeft, 2000);
 }
 
 function moveCarRight(carRight) {
     switch(true) {
-        case carRight.classList.contains('c1') :
-            carRight.classList.remove('c1')
-            carRight.classList.add('c3')
-            break
         case carRight.classList.contains('c2') :
             carRight.classList.remove('c2')
-            carRight.classList.add('c1')
+            carRight.classList.add('c3')
             break
+        // case carRight.classList.contains('c2') :
+        //     carRight.classList.remove('c2')
+        //     carRight.classList.add('c1')
+        //     break
         case carRight.classList.contains('c3') :
-            carRight.classList.remove('c3')
-            carRight.classList.add('c2')
+            if (carRight.classList.contains('second')){
+                carRight.classList.remove('c3')
+                carRight.classList.add('c2')
+                carRight.classList.remove('second')
+                } else {
+                if (carRight.classList.contains('first')){
+                carRight.classList.add('second') 
+                carRight.classList.remove('first')
+                } else {
+                carRight.classList.add('first')
+                }
+                }
             break
     }
 }

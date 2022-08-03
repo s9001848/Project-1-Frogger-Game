@@ -3,8 +3,7 @@ background: url('background.jpg');
 }
 
 .frog {
-    background-color: green;
-    
+    background: url('froggie.png');
 }
 
 h1{
@@ -48,30 +47,37 @@ button {
 }
 
 .ending-block {
-    background-color: rgb(179, 101, 101);
+    background: url('fly.png');
+    background-repeat: no-repeat;
 }
 
 .l1, .l2, .l3 {
-    background: url('log.png');
-    border-radius: 20px;
-}
-.river {
-    background-color: rgb(195, 231, 231);
+    background: url('log.jpeg');
+    background-repeat: no-repeat;
 }
 
 .road{
     background-color: rgb(148, 199, 148);
 }
-
+.river {
+background-color: rgb(207, 206, 206);
+}
 .l4, .l5 {
     background-color: rgb(195, 231, 231);
+    background: url('wave.jpeg');
 }
 
-.c1, .c2 {
-    background-color: rgb(109, 98, 84);
+.c1 {
+    background: url('carL.png');
+    background-repeat: no-repeat;
+}
+
+.c2 {
+    background: url('carR.png');
+    background-repeat: no-repeat;
 }
 
 .c3 {
-    background-color: rgb(173, 222, 182);
+    background-color: rgb(134, 134, 134);
 }
 
