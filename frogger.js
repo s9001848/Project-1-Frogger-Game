@@ -18,17 +18,17 @@ let currentTime = 60
 function movement(e) {
     squares[currentIndex].classList.remove('frog')
 
-    switch(e.key) {
-        case 'ArrowLeft' :
-             if (currentIndex % width !== 0) currentIndex -= 1
+    switch (e.key) {
+        case 'ArrowLeft':
+            if (currentIndex % width !== 0) currentIndex -= 1
             break
-        case 'ArrowRight' :
+        case 'ArrowRight':
             if (currentIndex % width < width - 1) currentIndex += 1
             break
-        case 'ArrowUp' :
-            if (currentIndex - width >=0 ) currentIndex -= width
+        case 'ArrowUp':
+            if (currentIndex - width >= 0) currentIndex -= width
             break
-        case 'ArrowDown' :
+        case 'ArrowDown':
             if (currentIndex + height < height * width) currentIndex += width
             break
     }
@@ -41,8 +41,7 @@ function autoMoveElements() {
     logsLeft.forEach(logLeft => moveLogLeft(logLeft))
     logsRight.forEach(logRight => moveLogRight(logRight))
     carsLeft.forEach(carLeft => moveCarLeft(carLeft))
-    // carsRight.forEach(carRight => moveCarRight(carRight))
-    for(let x = 0; x < carsRight.length; x += 2) {moveCarRight(carsRight[x])}
+    carsRight.forEach(carRight => moveCarRight(carRight))
 }
 
 function checkOutComes() {
@@ -51,24 +50,24 @@ function checkOutComes() {
 }
 
 function moveLogLeft(logLeft) {
-    switch(true) {
-        case logLeft.classList.contains('l1') :
+    switch (true) {
+        case logLeft.classList.contains('l1'):
             logLeft.classList.remove('l1')
             logLeft.classList.add('l2')
             break
-        case logLeft.classList.contains('l2') :
+        case logLeft.classList.contains('l2'):
             logLeft.classList.remove('l2')
             logLeft.classList.add('l3')
             break
-        case logLeft.classList.contains('l3') :
+        case logLeft.classList.contains('l3'):
             logLeft.classList.remove('l3')
             logLeft.classList.add('l4')
             break
-        case logLeft.classList.contains('l4') :
+        case logLeft.classList.contains('l4'):
             logLeft.classList.remove('l4')
             logLeft.classList.add('l5')
             break
-        case logLeft.classList.contains('l5') :
+        case logLeft.classList.contains('l5'):
             logLeft.classList.remove('l5')
             logLeft.classList.add('l1')
             break
@@ -76,24 +75,24 @@ function moveLogLeft(logLeft) {
 }
 
 function moveLogRight(logRight) {
-    switch(true) {
-        case logRight.classList.contains('l1') :
+    switch (true) {
+        case logRight.classList.contains('l1'):
             logRight.classList.remove('l1')
             logRight.classList.add('l5')
             break
-        case logRight.classList.contains('l2') :
+        case logRight.classList.contains('l2'):
             logRight.classList.remove('l2')
             logRight.classList.add('l1')
             break
-        case logRight.classList.contains('l3') :
+        case logRight.classList.contains('l3'):
             logRight.classList.remove('l3')
             logRight.classList.add('l2')
             break
-        case logRight.classList.contains('l4') :
+        case logRight.classList.contains('l4'):
             logRight.classList.remove('l4')
             logRight.classList.add('l3')
             break
-        case logRight.classList.contains('l5') :
+        case logRight.classList.contains('l5'):
             logRight.classList.remove('l5')
             logRight.classList.add('l4')
             break
@@ -101,46 +100,49 @@ function moveLogRight(logRight) {
 }
 
 function moveCarLeft(carLeft) {
-    switch(true) {
-        case carLeft.classList.contains('c1') :
+    switch (true) {
+        case carLeft.classList.contains('c1'):
             carLeft.classList.remove('c1')
             carLeft.classList.add('c3')
+            carLeft.classList.add('first')
             break
-        // case carLeft.classList.contains('c2') :
-        //     carLeft.classList.remove('c2')
-        //     carLeft.classList.add('c3')
-        //     break
-        case carLeft.classList.contains('c3') :
-            carLeft.classList.remove('c3')
-            carLeft.classList.add('c1')
+        case carLeft.classList.contains('c3'):
+            if (carLeft.classList.contains('second')) {
+                carLeft.classList.remove('c3')
+                carLeft.classList.add('c1')
+                carLeft.classList.remove('second')
+            } else {
+                if (carLeft.classList.contains('first')) {
+                    carLeft.classList.add('second')
+                    carLeft.classList.remove('first')
+                } else {
+                    carLeft.classList.add('first')
+                }
+            }
             break
     }
-    // setInterval(carLeft, 2000);
 }
 
 function moveCarRight(carRight) {
-    switch(true) {
-        case carRight.classList.contains('c2') :
+    switch (true) {
+        case carRight.classList.contains('c2'):
             carRight.classList.remove('c2')
             carRight.classList.add('c3')
+            carRight.classList.add('first')
             break
-        // case carRight.classList.contains('c2') :
-        //     carRight.classList.remove('c2')
-        //     carRight.classList.add('c1')
-        //     break
-        case carRight.classList.contains('c3') :
-            if (carRight.classList.contains('second')){
+        case carRight.classList.contains('c3'):
+            if (carRight.classList.contains('second')) {
                 carRight.classList.remove('c3')
                 carRight.classList.add('c2')
                 carRight.classList.remove('second')
+            } else {
+                if (carRight.classList.contains('first')) {
+                    carRight.classList.add('second')
+                    carRight.classList.remove('first')
                 } else {
-                if (carRight.classList.contains('first')){
-                carRight.classList.add('second') 
-                carRight.classList.remove('first')
-                } else {
-                carRight.classList.add('first')
+                    carRight.classList.add('first')
                 }
-                }
+            }
             break
     }
 }

@@ -39,6 +39,7 @@ button {
     left: 0;
     right: 0;
     background: url('nature_720x900.jpeg');
+    background-repeat: no-repeat;
 }
 
 .grid div {
@@ -52,9 +53,9 @@ button {
 }
 
 .l1, .l2, .l3 {
-    background: url('log.jpeg');
-    background-repeat: no-repeat;
+    background-color: rgb(101, 70, 41);
 }
+
 
 .road{
     background-color: rgb(148, 199, 148);
