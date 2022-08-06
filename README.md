@@ -24,6 +24,23 @@ My CSS page is fairly simple, I gave my starting and ending block a background i
 
 My Javascript consists of 7 major sections; global variables, character movements, movements of the logs and cars, winning conditions, and timer. The spent the most time on figure out how I can move my cars block by block.
 
+## Requirements
+
+The requirements needed for this project to be successful:
+
+- A result that show the winning condition.
+- Able to display the game in the browser.
+- Include separate HTML / CSS / Javascript files,
+- Use Javascript for DOM manipulation.
+- Deploy your game online to public.
+- Use semantic markup for HTML and CSS.
+
+## How the Game Works:
+
+1. Use the arrow keys to control the movements of the frog.
+2. Your goal is to get to the other side and eat the fly.
+3. You will need to dodge the obstacles coming towards you in order to get to the fly. 
+
 ## Finshed Game
 
 ![Finished Game](finished_game.png)
