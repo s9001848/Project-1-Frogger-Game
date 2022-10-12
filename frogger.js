@@ -1,4 +1,8 @@
+
+document.addEventListener('DOMContentLoaded', main);
+
 //Global Variables
+function main() {
 const timeLeftDisplay = document.querySelector('#time-left')
 const resultDisplay = document.querySelector('#result')
 const startPauseButton = document.querySelector('#start-pause-button')
@@ -7,6 +11,7 @@ const logsLeft = document.querySelectorAll('.log-left')
 const logsRight = document.querySelectorAll('.log-right')
 const carsLeft = document.querySelectorAll('.car-left')
 const carsRight = document.querySelectorAll('.car-right')
+const restart = document.querySelector(`#reset`)
 
 let currentIndex = 94
 const width = 9
@@ -46,7 +51,7 @@ function autoMoveElements() {
 
 function checkOutComes() {
     lose()
-    win()
+    // win()
 }
 
 function moveLogLeft(logLeft) {
@@ -159,6 +164,7 @@ function lose() {
         clearInterval(outcomeTimerId)
         squares[currentIndex].classList.remove('frog')
         document.removeEventListener('keyup', movement)
+        restart.innerHTML = `Play Again`
     }
 }
 
@@ -168,6 +174,7 @@ function win() {
         clearInterval(timerId)
         clearInterval(outcomeTimerId)
         document.removeEventListener('keyup', movement)
+        restart.innerHTML = `Play Again`
     }
 }
 
@@ -183,4 +190,9 @@ startPauseButton.addEventListener('click', () => {
         outcomeTimerId = setInterval(checkOutComes, 50)
         document.addEventListener('keyup', movement)
     }
-})
+});
+
+restart.addEventListener("click", () => {
+    window.location.reload()
+});
+};

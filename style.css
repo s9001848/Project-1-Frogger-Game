@@ -82,3 +82,10 @@ background-color: rgb(207, 206, 206);
     background-color: rgb(134, 134, 134);
 }
 
+#reset {
+    position: absolute;
+    right: 310px;
+    z-index: 10000;
+    color: rgb(85, 85, 178);
+    background-color: rgb(188, 188, 230);
+}
